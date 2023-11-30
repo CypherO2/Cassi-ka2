@@ -1,16 +1,16 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function countTracker() {
-  const storedCount = localStorage.getItem("count");
-  const initialCount = storedCount ? parseInt(storedCount, 10) : 0;
-  const [count, setCount] = useState<number>(initialCount);
+const useCountTracker = () => {
+  const [count, setCount] = useState<number>(() => {
+    const storedCount = localStorage.getItem("count");
+    return storedCount ? parseInt(storedCount, 10) : 0;
+  });
 
-  const saveCount = (newCount: number) => {
-    localStorage.setItem("count", newCount.toString());
-    setCount(newCount);
-  };
+  useEffect(() => {
+    localStorage.setItem("count", count.toString());
+  }, [count]);
 
-  return { count, setCount: saveCount };
-}
+  return { count, setCount };
+};
 
-export default countTracker;
+export default useCountTracker;

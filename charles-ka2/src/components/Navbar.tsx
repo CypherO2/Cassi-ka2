@@ -1,9 +1,13 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
-import countTracker from "../hooks/countTracker";
+import useCountTracker from "../hooks/countTracker";
 import multiplerTracker from "../hooks/multiplierTracker";
 
 function CookieNav() {
-  const { count, setCount } = countTracker();
+  const MyComponent = () => {
+    const { count, setCount } = useCountTracker();
+  
+    const handleIncrement = () => {
+      setCount(count + 1);
   return (
     <>
       <Navbar className="sticky-top" bg="dark" data-bs-theme="dark">
