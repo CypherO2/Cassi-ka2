@@ -1,6 +1,9 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
+import countTracker from "../hooks/countTracker";
+import multiplerTracker from "../hooks/multiplierTracker";
 
 function CookieNav() {
+  const { count, setCount } = countTracker();
   return (
     <>
       <Navbar className="sticky-top" bg="dark" data-bs-theme="dark">
@@ -14,7 +17,7 @@ function CookieNav() {
             <Nav.Link href="/temp">Temp Check</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link>Cookies: </Nav.Link>
+            <Nav.Link>Cookies: {count}</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
