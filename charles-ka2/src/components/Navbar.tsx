@@ -3,11 +3,7 @@ import useCountTracker from "../hooks/countTracker";
 import multiplerTracker from "../hooks/multiplierTracker";
 
 function CookieNav() {
-  const MyComponent = () => {
-    const { count, setCount } = useCountTracker();
-  
-    const handleIncrement = () => {
-      setCount(count + 1);
+  const { count } = useCountTracker();
   return (
     <>
       <Navbar className="sticky-top" bg="dark" data-bs-theme="dark">
